@@ -1,18 +1,6 @@
-import importlib
-import sys
+from keyops import aes_key_ops
+from keyops import rsa_key_ops
+from keyops import totp_ops
+from keyops import sha256_ops
 
-
-
-
-version = "0.0.1a3"
-package_name = "keyops"
-__all__ = ["aes_key_ops", "rsa_key_ops", "sha256_ops", "totp_ops"]
-
-
-
-
-importlib.import_module(package_name)
-this = sys.modules[__name__]
-
-for mod in __all__:
-    setattr(this, mod, importlib.import_module(f"{package_name}.{mod}"))
+__version__ = "0.0.2"

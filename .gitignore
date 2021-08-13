@@ -158,3 +158,6 @@ dmypy.json
 
 *.ipynb
 .ipynb_checkpoints/
+
+todo.txt
+test.py
