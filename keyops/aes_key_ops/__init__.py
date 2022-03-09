@@ -1,4 +1,5 @@
 import os
+from turtle import back
 from cryptography.hazmat.primitives.ciphers import Cipher
 from cryptography.hazmat.primitives.ciphers.algorithms import AES
 from cryptography.hazmat.primitives.ciphers.modes import CBC
@@ -12,7 +13,7 @@ def encrypt(message, key):
     bmessage = __pad(bmessage)
 
     iv = os.urandom(16)
-    cipher = Cipher(AES(key), CBC(iv))
+    cipher = Cipher(AES(key), CBC(iv), backend=None)
     encryptor = cipher.encryptor()
     ciphertext = encryptor.update(bmessage) + encryptor.finalize()
     return (ciphertext, iv)
